@@ -2,17 +2,20 @@ import java.util.Random;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
         int[] arr = new int[30];
-        Random random = new Random();
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = 100_000 + random.nextInt(100_000);
+            arr[i] = random.nextInt(100_000) + 100_000;
         }
-
+        return arr;
+    }
+    public static void main(String[] args) {
         // Задание 1. Найти сумму всех выплат.
-        double sum = 0;
-        for (int i : arr) {
-            sum += i;
+        int sum = 0;
+        int[] arr = generateRandomArray();
+        for (int b : arr) {
+            sum += b;
         }
         System.out.println("Сумма трат за месяц составила " + sum + " рублей.");
 
@@ -26,7 +29,7 @@ public class Main {
         System.out.println("Максимальная сумма трат за день составила " + maxSum + " рублей.");
         int minSum = 200001;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < minSum){
+            if (arr[i] < minSum) {
                 minSum = arr[i];
             }
         }
@@ -37,10 +40,9 @@ public class Main {
         System.out.println("Средняя сумма трат за месяц составила " + average + " рублей.");
 
         // Задание 4. Корректно вывести в консоль фамилию и имя.
-        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
         for (int i = reverseFullName.length - 1; i >= 0; i--) {
             System.out.print(reverseFullName[i]);
         }
-
+        }
     }
-}
